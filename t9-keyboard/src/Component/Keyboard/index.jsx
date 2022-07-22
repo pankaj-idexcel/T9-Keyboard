@@ -1,6 +1,5 @@
 import React, { Fragment, memo, useState } from "react";
 import DisplayInput from "../DisplayInput";
-// import DisplayInput from "../DisplayInput";
 
 const Keyboard = () => {
   const arr = [
@@ -20,6 +19,8 @@ const Keyboard = () => {
   let count = 0;
   let prevItemId = 0;
   let timer;
+
+
 
   const handleInput = async (item) => {
     console.log("handleInput", count);
@@ -41,9 +42,7 @@ const Keyboard = () => {
       setInput(input+char);
     }, 300);
   };
-
   
-
   return (
     <Fragment>
       <DisplayInput input={input} />
