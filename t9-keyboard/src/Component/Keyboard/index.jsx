@@ -1,5 +1,6 @@
 import React, { Fragment, memo, useState } from "react";
 import DisplayInput from "../DisplayInput";
+// import DisplayInput from "../DisplayInput";
 
 const Keyboard = () => {
   const arr = [
@@ -13,39 +14,34 @@ const Keyboard = () => {
     { number: 8, chars: ["s", "t", "u"] },
     { number: 9, chars: ["v", "w", "x", "y", "z"] },
   ];
-
   const [input, setInput] = useState("");
   let char = "";
-  let count = 0;
+  let count = 0
   let prevItemId = 0;
   let timer;
 
-
-
   const handleInput = async (item) => {
     console.log("handleInput", count);
-
     if (prevItemId !== item.number) {
       count = 0;
       prevItemId = item.number;
     }
-
     if (count < item.chars.length) {
       char = item.chars[count];
       count++;
+      console.log("handleInputIF", count);
     } else {
       count = 0;
     }
-
     clearTimeout(timer);
     timer = setTimeout(() => {
-      setInput(input+char);
-    }, 300);
+      setInput(input + char);
+    }, 1000);
   };
-  
+  console.log("char", char);
   return (
     <Fragment>
-      <DisplayInput input={input} />
+      <DisplayInput input={input} /> 
       <div
         style={{
           width: "300px",
@@ -61,15 +57,15 @@ const Keyboard = () => {
             <button
               type="button"
               style={{
-                borderRadius: "20px",
                 margin: "20px",
-                padding: "15px",
                 width: "50px",
                 height: "30px",
+                borderRadius:"20px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
+                padding: "25px",
               }}
               key={item.number}
               onClick={() => handleInput(item)}
