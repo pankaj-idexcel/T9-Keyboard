@@ -8,7 +8,7 @@ const DisplayInput = ({ input }) => {
         readOnly
         type={"text"}
         style={{ width: "20rem", height: "3rem", fontSize: "2rem" }}
-      ></input>
+      />
     </form>
   );
 };
