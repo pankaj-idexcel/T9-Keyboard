@@ -1,4 +1,4 @@
-import React, { Fragment, memo, useState } from "react";
+import React, { Fragment, memo, useEffect, useState } from "react";
 import DisplayInput from "../DisplayInput";
 
 const Keyboard = () => {
@@ -19,8 +19,8 @@ const Keyboard = () => {
   let prevItemId = 0;
   let timer;
 
-  const handleInput = async (item) => {
-    console.log("handleInput", count);
+  const handleInput = (item) => {
+    // console.log("handleInput", count);
     if (prevItemId !== item.number) {
       count = 0;
       prevItemId = item.number;
@@ -34,9 +34,9 @@ const Keyboard = () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
       setInput(input + char);
-    }, 1000);
+    }, 800);
   };
-
+ 
   return (
     <Fragment>
       <DisplayInput input={input} /> 
