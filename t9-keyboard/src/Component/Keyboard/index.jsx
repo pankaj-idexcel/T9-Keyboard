@@ -1,6 +1,5 @@
 import React, { Fragment, memo, useState } from "react";
 import DisplayInput from "../DisplayInput";
-// import DisplayInput from "../DisplayInput";
 
 const Keyboard = () => {
   const arr = [
