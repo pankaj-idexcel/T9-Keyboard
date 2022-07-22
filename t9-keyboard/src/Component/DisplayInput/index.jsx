@@ -7,7 +7,7 @@ const DisplayInput = ({ input }) => {
         value={input}
         readOnly
         type={"text"}
-        style={{ width: "300px", height: "50px", fontSize: "30px" }}
+        style={{ width: "20rem", height: "3rem", fontSize: "2rem" }}
       ></input>
     </form>
   );

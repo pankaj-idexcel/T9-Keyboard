@@ -16,11 +16,11 @@ function App() {
         className="App"
         style={{
           border: "2px solid black",
-          width: "300px",
-          height: "400px",
+          width: "20rem",
+          height: "25rem",
           display: "flex",
           flexDirection: "column",
-          padding: "10px",
+          padding: "1rem",
           justifyContent: "center",
           alignItems: "center",
         }}

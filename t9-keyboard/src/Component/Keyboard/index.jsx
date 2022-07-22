@@ -42,7 +42,7 @@ const Keyboard = () => {
       <DisplayInput input={input} /> 
       <div
         style={{
-          width: "300px",
+          width: "20rem",
           height: "auto",
           display: "flex",
           flexWrap: "wrap",
@@ -55,15 +55,15 @@ const Keyboard = () => {
             <button
               type="button"
               style={{
-                margin: "20px",
-                width: "50px",
-                height: "30px",
-                borderRadius:"20px",
+                margin: "1.5rem",
+                width: "1.5rem",
+                height: "3rem",
+                borderRadius:"2rem",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: "25px",
+                padding: "1.5rem",
               }}
               key={item.number}
               onClick={() => handleInput(item)}
