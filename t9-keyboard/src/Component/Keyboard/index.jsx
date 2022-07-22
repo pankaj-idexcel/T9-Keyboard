@@ -1,4 +1,5 @@
 import React, { Fragment, memo, useEffect, useState } from "react";
+import DisplayInput from "../DisplayInput";
 // import DisplayInput from "../DisplayInput";
 
 const Keyboard = () => {
@@ -14,53 +15,38 @@ const Keyboard = () => {
     { number: 9, chars: ["v", "w", "x", "y", "z"] },
   ];
   const [input, setInput] = useState("");
-//   let char = "";
-  const [char, setChar]= useState("")
-  const [count, setCount] = useState(0);
-// let count =0
-const [prevItemId, setprevItemID] = useState(0);
-// let counts =0;
+  let char = "";
+  let count = 0;
+  let prevItemId = 0;
+
   let timer;
 
   const handleInput = async (item) => {
     console.log("handleInput", count);
 
     if (prevItemId !== item.number) {
-      setCount(0)
-      setprevItemID(item.number)
-      clearTimeout(timer)
+      count = 0;
+      prevItemId = item.number;
     }
-    
-    if (count <= item.chars.length && count !== item.chars.length) {
-      setChar(item.chars[count]);
-      setCount((prev) => prev + 1);
 
+    if (count < item.chars.length && count !== item.chars.length) {
+      char = item.chars[count];
+      count++;
       console.log("handleInputIF", count);
     } else {
-      setCount(0);
+      count = 0;
     }
-    
-  };
 
-  const callTimer = () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      setInput(input+char);
+      setInput(input + char);
     }, 1000);
   };
 
-  useEffect(() => {
-    callTimer();
-  }, [char])
-  
-
-
-console.log("char",char);
+  console.log("char", char);
   return (
     <Fragment>
-      <form>
-        <input value={input} readOnly type={"text"}></input>
-      </form>
+      <DisplayInput input={input} />
       <div
         style={{
           width: "300px",
