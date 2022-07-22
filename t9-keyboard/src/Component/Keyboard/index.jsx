@@ -28,7 +28,6 @@ const Keyboard = () => {
     if (count < item.chars.length) {
       char = item.chars[count];
       count++;
-      console.log("handleInputIF", count);
     } else {
       count = 0;
     }
