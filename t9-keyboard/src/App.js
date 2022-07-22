@@ -1,6 +1,5 @@
-import DisplayInput from "./Component/DisplayInput";
+import React from 'react'
 import Keyboard from "./Component/Keyboard";
-
 
 function App() {
   return (
