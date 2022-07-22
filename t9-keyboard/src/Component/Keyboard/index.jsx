@@ -37,7 +37,7 @@ const Keyboard = () => {
       setInput(input + char);
     }, 1000);
   };
-  console.log("char", char);
+
   return (
     <Fragment>
       <DisplayInput input={input} /> 
