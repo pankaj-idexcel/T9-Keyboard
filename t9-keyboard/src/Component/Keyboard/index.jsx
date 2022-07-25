@@ -22,14 +22,9 @@ const Keyboard = () => {
   let timer;
 
   const handleInput = (item) => {
-
-    
-    
-    if (count < item.chars.length) {
+    if (count < item.chars.length && !flag) {
       setCount((prev)=> prev+1);
-      setChar(()=>{
-        return item.chars[count]
-      })
+      setChar( item.chars[count]);
     } else {
       setCount(0);
       setChar("")
