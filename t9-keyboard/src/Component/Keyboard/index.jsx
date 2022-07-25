@@ -1,4 +1,4 @@
-import React, { Fragment, memo, useState } from "react";
+import React, { Fragment, memo, useEffect, useState } from "react";
 import DisplayInput from "../DisplayInput";
 
 const Keyboard = () => {
@@ -13,33 +13,48 @@ const Keyboard = () => {
     { number: 8, chars: ["s", "t", "u"] },
     { number: 9, chars: ["v", "w", "x", "y", "z"] },
   ];
-  const [input, setInput] = useState("");
-  let char = "";
-  let count = 0
-  let prevItemId = 0;
+  const [input, setInput] = useState([]);
+  const [count, setCount] = useState(0);
+  const [char, setChar] = useState("");
+  const [flag, setFlag] = useState(false);
+  const [click, setClick] = useState(0);
+
   let timer;
 
   const handleInput = (item) => {
-    // console.log("handleInput", count);
-    if (prevItemId !== item.number) {
-      count = 0;
-      prevItemId = item.number;
-    }
+
+    
+    
     if (count < item.chars.length) {
-      char = item.chars[count];
-      count++;
+      setCount((prev)=> prev+1);
+      setChar(()=>{
+        return item.chars[count]
+      })
     } else {
-      count = 0;
+      setCount(0);
+      setChar("")
     }
+    setClick(prev=> prev+1)
+  };
+
+  useEffect(() => {
+    handleTimer()
+  }, [click])
+  
+  const handleTimer=()=>{
     clearTimeout(timer);
     timer = setTimeout(() => {
-      setInput(input + char);
+      // setCount(0);
+      setFlag(false);
+      setChar("")
+      setCount(0)
+      setInput([...input, char]);
     }, 800);
-  };
- 
+  }
+
   return (
     <Fragment>
-      <DisplayInput input={input} /> 
+      <DisplayInput input={input} />
       <div
         style={{
           width: "20rem",
